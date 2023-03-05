@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+
+{% block head_title %}
+    
+{% endblock head_title %}
+    {{ block.super }} - Book List
+{% block content %}
+
+
+
+
+<div class="card mt-5">
+
+    <div class="card-body">
+        <h5 class="card-title">Books</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                <!-- <th scope="col">#id</th> -->
+                <th scope="col">Azioni</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in object_list %}
+                <tr>
+                <!-- <th scope="row">1</th> -->
+                <th>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                          Azioni
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Modifica</a>
+                          <a class="dropdown-item" href="#">Elimina</a>
+                        </div>
+                      </div>
+                </th>
+                <td>{{item.title}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.author}}</td>
+                </tr>
+                {% endfor %}          
+            </tbody>
+            </table>
+    </div>
+    </div>
+        
+
+{% endblock content %}
+    
